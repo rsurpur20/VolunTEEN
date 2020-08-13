@@ -19,6 +19,7 @@
 		9ABCC72124E469BA00F827CF /* AddOppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC72024E469BA00F827CF /* AddOppViewController.swift */; };
 		9AE1DDB424E4472A009182F1 /* CompanyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1DDB324E4472A009182F1 /* CompanyTableViewController.swift */; };
 		D7F5745224E50A12009BD1FA /* PostOppClickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5745124E50A12009BD1FA /* PostOppClickViewController.swift */; };
+		D7F5745624E51930009BD1FA /* VolunteerPostOppClickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5745524E51930009BD1FA /* VolunteerPostOppClickViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9ABCC72024E469BA00F827CF /* AddOppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOppViewController.swift; sourceTree = "<group>"; };
 		9AE1DDB324E4472A009182F1 /* CompanyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewController.swift; sourceTree = "<group>"; };
 		D7F5745124E50A12009BD1FA /* PostOppClickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOppClickViewController.swift; sourceTree = "<group>"; };
+		D7F5745524E51930009BD1FA /* VolunteerPostOppClickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerPostOppClickViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		0C64215C24E4398F0073D17C /* VolunTEEN */ = {
 			isa = PBXGroup;
 			children = (
+				D7F5745524E51930009BD1FA /* VolunteerPostOppClickViewController.swift */,
 				D7F5745124E50A12009BD1FA /* PostOppClickViewController.swift */,
 				0C64215D24E4398F0073D17C /* AppDelegate.swift */,
 				0C64215F24E4398F0073D17C /* SceneDelegate.swift */,
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F5745624E51930009BD1FA /* VolunteerPostOppClickViewController.swift in Sources */,
 				D7F5745224E50A12009BD1FA /* PostOppClickViewController.swift in Sources */,
 				9ABCC71D24E448C100F827CF /* VolunteerOppTableViewController.swift in Sources */,
 				9ABCC71F24E4491300F827CF /* PostOpp.swift in Sources */,

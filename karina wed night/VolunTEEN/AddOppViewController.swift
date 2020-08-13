@@ -11,6 +11,7 @@ import UIKit
 class AddOppViewController: UIViewController {
 
     var previousOppTVC = CompanyTableViewController()
+//    var previousOppTVCVolunteer = VolunteerOppTableViewController()
 
     
     @IBOutlet weak var contactInformationInput: UITextField!
@@ -44,18 +45,7 @@ class AddOppViewController: UIViewController {
         //this send the user back to the Table View Controller
              navigationController?.popViewController(animated: true)
         
-        
-        
-//        let newOpp = PostOpp()
-//        if let checkForInput = descriptionInput.text, let checkForJobTitleInput = jobTitleInput.text, let checkForContactInfo = contactInformationInput.text {
-//            newOpp.description = checkForInput
-//            newOpp.remote = locationInput.isOn
-//            newOpp.contactInfo = checkForContactInfo
-//            newOpp.jobTitle = checkForJobTitleInput
-//        }
-//        previousOppTVC.listOfOpps.append(newOpp)
-//        previousOppTVC.tableView.reloadData()
-//        navigationController?.popViewController(animated: true)
+    
         }
 
 

@@ -9,38 +9,75 @@
 import UIKit
 
 class VolunteerOppTableViewController: UITableViewController {
+    var listOfOpps : [OppCD] = []
 
+    func getOpps() {
+         if let accessToCoreData = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+
+         if let dataFromCoreData = try? accessToCoreData.fetch(OppCD.fetchRequest()) as? [OppCD] {
+              listOfOpps = dataFromCoreData
+              tableView.reloadData()
+              }
+         }
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listOfOpps.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifiertwo", for: indexPath)
+        
+            let eachOpp = listOfOpps[indexPath.row]
+        
+            cell.textLabel?.text = eachOpp.jobTitleAttribute
+            cell.detailTextLabel?.text = eachOpp.descriptionAttribute
+            
+            if let thereIsDescription = eachOpp.jobTitleAttribute {
+                 if eachOpp.remoteAttribute {
+               cell.textLabel?.text = "🏠" + thereIsDescription
+                } else {
+               cell.textLabel?.text = eachOpp.jobTitleAttribute
+                }
+            }
+  
+            
+            return cell
+        }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        // Configure the cell...
+           // this gives us a single ToDo
+           let eachOpp = listOfOpps[indexPath.row]
 
-        return cell
+           performSegue(withIdentifier: "moveToCompletedOppVC", sender: eachOpp)
+      }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextAddOpp = segue.destination as? VolunteerPostOppClickViewController {
+            nextAddOpp.previousOppTVCVolunteer = self
+
+        }
+        if let nextCompletedOppVC = segue.destination as? VolunteerPostOppClickViewController {
+             if let choosenOpp = sender as? OppCD {
+                  nextCompletedOppVC.selectedOppVolunteer = choosenOpp
+                  nextCompletedOppVC.previousOppTVCVolunteer = self
+             }
+        }
+
     }
-    */
+    
+    override func viewWillAppear(_ animated: Bool) {
+         getOpps()
+    }
 
     /*
     // Override to support conditional editing of the table view.
