@@ -25,10 +25,11 @@ class PostOppClickViewController: UIViewController {
         
         if selectedOpp?.remoteAttribute == true{
             isRemoteClicked.text = "🏠"
-        } else{
-            isRemoteClicked.text = "In-Person"
-
         }
+//        else{
+//            isRemoteClicked.text = "In-Person"
+//
+//        }
     }
     
     

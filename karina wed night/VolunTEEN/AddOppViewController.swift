@@ -11,7 +11,8 @@ import UIKit
 class AddOppViewController: UIViewController {
 
     var previousOppTVC = CompanyTableViewController()
-//    var previousOppTVCVolunteer = VolunteerOppTableViewController()
+    var previousOppTVCVolunteer = VolunteerOppTableViewController()
+//    var selectedOppVolunteer : OppCD?
 
     
     @IBOutlet weak var contactInformationInput: UITextField!

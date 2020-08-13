@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:VolunTEEN.xcodeproj">
+      location = "group:../../averta/AvertaDemoPE-ExtraBold.otf">
+   </FileRef>
+   <FileRef
+      location = "group:../../averta/AvertaDemoPECuttedDemo-Regular.otf">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

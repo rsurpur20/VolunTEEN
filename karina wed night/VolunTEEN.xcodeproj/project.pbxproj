@@ -20,6 +20,8 @@
 		9AE1DDB424E4472A009182F1 /* CompanyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1DDB324E4472A009182F1 /* CompanyTableViewController.swift */; };
 		D7F5745224E50A12009BD1FA /* PostOppClickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5745124E50A12009BD1FA /* PostOppClickViewController.swift */; };
 		D7F5745624E51930009BD1FA /* VolunteerPostOppClickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5745524E51930009BD1FA /* VolunteerPostOppClickViewController.swift */; };
+		D7F5745D24E59D50009BD1FA /* AvertaDemoPE-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D7F5745B24E59D50009BD1FA /* AvertaDemoPE-ExtraBold.otf */; };
+		D7F5745E24E59D50009BD1FA /* AvertaDemoPECuttedDemo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D7F5745C24E59D50009BD1FA /* AvertaDemoPECuttedDemo-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		9AE1DDB324E4472A009182F1 /* CompanyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewController.swift; sourceTree = "<group>"; };
 		D7F5745124E50A12009BD1FA /* PostOppClickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOppClickViewController.swift; sourceTree = "<group>"; };
 		D7F5745524E51930009BD1FA /* VolunteerPostOppClickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerPostOppClickViewController.swift; sourceTree = "<group>"; };
+		D7F5745B24E59D50009BD1FA /* AvertaDemoPE-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPE-ExtraBold.otf"; sourceTree = "<group>"; };
+		D7F5745C24E59D50009BD1FA /* AvertaDemoPECuttedDemo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaDemoPECuttedDemo-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 		0C64215C24E4398F0073D17C /* VolunTEEN */ = {
 			isa = PBXGroup;
 			children = (
+				D7F5745B24E59D50009BD1FA /* AvertaDemoPE-ExtraBold.otf */,
+				D7F5745C24E59D50009BD1FA /* AvertaDemoPECuttedDemo-Regular.otf */,
 				D7F5745524E51930009BD1FA /* VolunteerPostOppClickViewController.swift */,
 				D7F5745124E50A12009BD1FA /* PostOppClickViewController.swift */,
 				0C64215D24E4398F0073D17C /* AppDelegate.swift */,
@@ -146,8 +152,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F5745D24E59D50009BD1FA /* AvertaDemoPE-ExtraBold.otf in Resources */,
 				0C64216D24E439910073D17C /* LaunchScreen.storyboard in Resources */,
 				0C64216A24E439910073D17C /* Assets.xcassets in Resources */,
+				D7F5745E24E59D50009BD1FA /* AvertaDemoPECuttedDemo-Regular.otf in Resources */,
 				0C64216524E4398F0073D17C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
