@@ -10,19 +10,26 @@ import UIKit
 
 class CompanyTableViewController: UITableViewController {
 
-    var listOfOpps : [PostOpp] = []
+    var listOfOpps : [OppCD] = []
+    
+    
+    func getOpps() {
+         if let accessToCoreData = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+
+         if let dataFromCoreData = try? accessToCoreData.fetch(OppCD.fetchRequest()) as? [OppCD] {
+              listOfOpps = dataFromCoreData
+              tableView.reloadData()
+              }
+         }
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+ 
     }
 
-    // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,21 +41,24 @@ class CompanyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let eachOpp = listOfOpps[indexPath.row]
-        cell.textLabel?.text = eachOpp.jobTitle
-        cell.detailTextLabel?.text = eachOpp.description
+        cell.textLabel?.text = eachOpp.jobTitleAttribute
+        cell.detailTextLabel?.text = eachOpp.descriptionAttribute
         
-        if eachOpp.remote {
-            cell.textLabel?.text = "🏠" + eachOpp.jobTitle
-        } else      {
-            cell.textLabel?.text = eachOpp.jobTitle
+        if let thereIsDescription = eachOpp.jobTitleAttribute {
+             if eachOpp.remoteAttribute {
+           cell.textLabel?.text = "🏠" + thereIsDescription
+            } else {
+           cell.textLabel?.text = eachOpp.jobTitleAttribute
             }
-
-
-        //display stuff:
+        }
         
-        
-        
+//        if eachOpp.remoteAttribute {
+//            cell.textLabel?.text = "🏠" + eachOpp.jobTitleAttribute
+//        } else      {
+//            cell.textLabel?.text = eachOpp.jobTitleAttribute
+//            }
 
+        
         return cell
     }
 
@@ -67,12 +77,16 @@ class CompanyTableViewController: UITableViewController {
             
         }
         if let nextCompletedOppVC = segue.destination as? PostOppClickViewController {
-             if let choosenOpp = sender as? PostOpp {
+             if let choosenOpp = sender as? OppCD {
                   nextCompletedOppVC.selectedOpp = choosenOpp
                   nextCompletedOppVC.previousOppTVC = self
              }
         }
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+         getOpps()
+    }
+
 
 }

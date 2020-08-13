@@ -23,26 +23,41 @@ class AddOppViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func submitButtonTapped(_ sender: UIButton) {
-        let newOpp = PostOpp()
-        if let checkForInput = descriptionInput.text, let checkForJobTitleInput = jobTitleInput.text, let checkForContactInfo = contactInformationInput.text {
-            newOpp.description = checkForInput
-            newOpp.remote = locationInput.isOn
-            newOpp.contactInfo = checkForContactInfo
-            newOpp.jobTitle = checkForJobTitleInput
-        }
-        previousOppTVC.listOfOpps.append(newOpp)
-        previousOppTVC.tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        guard let accessToCoreData = UIApplication.shared.delegate as? AppDelegate else {
+         return
+         }
+        //this line stores the information from Core Data into the object (dataFromCoreData) that we can access.
+             let dataFromCoreData = accessToCoreData.persistentContainer.viewContext
+
+        //this line creates an empty object that is the same data type as the ToDoCD entry within Core Data.  This means this object will have all the properties of ToDoCD.
+             let newOpp = OppCD(context: dataFromCoreData)
+
+        //these lines give the object information from the user input
+             newOpp.descriptionAttribute = descriptionInput.text
+             newOpp.remoteAttribute = locationInput.isOn
+        newOpp.jobTitleAttribute = jobTitleInput.text
+        newOpp.contactInfoAttribute = contactInformationInput.text
+
+        //This is like clicking "save"! Our new object is now safe in Core Data!
+             accessToCoreData.saveContext()
+
+        //this send the user back to the Table View Controller
+             navigationController?.popViewController(animated: true)
+        
+        
+        
+//        let newOpp = PostOpp()
+//        if let checkForInput = descriptionInput.text, let checkForJobTitleInput = jobTitleInput.text, let checkForContactInfo = contactInformationInput.text {
+//            newOpp.description = checkForInput
+//            newOpp.remote = locationInput.isOn
+//            newOpp.contactInfo = checkForContactInfo
+//            newOpp.jobTitle = checkForJobTitleInput
+//        }
+//        previousOppTVC.listOfOpps.append(newOpp)
+//        previousOppTVC.tableView.reloadData()
+//        navigationController?.popViewController(animated: true)
         }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

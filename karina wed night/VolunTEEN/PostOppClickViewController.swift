@@ -10,7 +10,7 @@ import UIKit
 
 class PostOppClickViewController: UIViewController {
     var previousOppTVC = CompanyTableViewController()
-    var selectedOpp = PostOpp()
+    var selectedOpp : OppCD?
     
     @IBOutlet weak var isRemoteClicked: UILabel!
     @IBOutlet weak var descriptionClicked: UILabel!
@@ -19,11 +19,11 @@ class PostOppClickViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleClicked.text = selectedOpp.jobTitle
-        descriptionClicked.text = selectedOpp.description
-        contactClicked.text = selectedOpp.contactInfo
+        titleClicked.text = selectedOpp?.jobTitleAttribute
+        descriptionClicked.text = selectedOpp?.descriptionAttribute
+        contactClicked.text = selectedOpp?.contactInfoAttribute
         
-        if selectedOpp.remote == true{
+        if selectedOpp?.remoteAttribute == true{
             isRemoteClicked.text = "🏠"
         } else{
             isRemoteClicked.text = "In-Person"
