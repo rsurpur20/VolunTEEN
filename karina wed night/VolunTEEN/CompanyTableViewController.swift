@@ -26,7 +26,13 @@ class CompanyTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let accessToCoreData = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
 
+         if let dataFromCoreData = try? accessToCoreData.fetch(OppCD.fetchRequest()) as? [OppCD] {
+              listOfOpps = dataFromCoreData
+              tableView.reloadData()
+              }
+         }
  
     }
 
@@ -52,14 +58,13 @@ class CompanyTableViewController: UITableViewController {
             }
         }
         
-//        if eachOpp.remoteAttribute {
-//            cell.textLabel?.text = "🏠" + eachOpp.jobTitleAttribute
-//        } else      {
-//            cell.textLabel?.text = eachOpp.jobTitleAttribute
-//            }
+
 
         
         return cell
+    }
+    override func viewWillAppear(_ animated: Bool) {
+         getOpps()
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -67,7 +72,7 @@ class CompanyTableViewController: UITableViewController {
          // this gives us a single ToDo
          let eachOpp = listOfOpps[indexPath.row]
 
-         performSegue(withIdentifier: "moveToCompletedToDoVC", sender: eachOpp)
+         performSegue(withIdentifier: "movetwo", sender: eachOpp)
     }
     
 
@@ -83,9 +88,6 @@ class CompanyTableViewController: UITableViewController {
              }
         }
 
-    }
-    override func viewWillAppear(_ animated: Bool) {
-         getOpps()
     }
 
 

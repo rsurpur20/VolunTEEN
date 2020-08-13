@@ -24,6 +24,16 @@ class VolunteerOppTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let accessToCoreData = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+
+             if let dataFromCoreData = try? accessToCoreData.fetch(OppCD.fetchRequest()) as? [OppCD] {
+                  listOfOpps = dataFromCoreData
+                  tableView.reloadData()
+                  }
+             }
+
+        
 
     }
 
@@ -53,9 +63,14 @@ class VolunteerOppTableViewController: UITableViewController {
             return cell
         }
     
+    override func viewWillAppear(_ animated: Bool) {
+         getOpps()
+    }
+
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            let eachOpp = listOfOpps[indexPath.row]
-           performSegue(withIdentifier: "moveToCompletedOppVC", sender: eachOpp)
+           performSegue(withIdentifier: "move", sender: eachOpp)
       }
     
     
@@ -73,9 +88,6 @@ class VolunteerOppTableViewController: UITableViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-         getOpps()
-    }
 
 
 

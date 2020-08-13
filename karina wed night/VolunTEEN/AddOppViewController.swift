@@ -22,7 +22,6 @@ class AddOppViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         guard let accessToCoreData = UIApplication.shared.delegate as? AppDelegate else {
