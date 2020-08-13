@@ -13,4 +13,5 @@ class PostOpp {
     var description = ""
     var remote = false
     var contactInfo = ""
+    var date = ""
 }

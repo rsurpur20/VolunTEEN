@@ -17,12 +17,13 @@ class PostOppClickViewController: UIViewController {
     @IBOutlet weak var titleClicked: UILabel!
     @IBOutlet weak var contactClicked: UILabel!
     
+    @IBOutlet weak var dateClicked: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         titleClicked.text = selectedOpp?.jobTitleAttribute
         descriptionClicked.text = selectedOpp?.descriptionAttribute
         contactClicked.text = selectedOpp?.contactInfoAttribute
-        
+        dateClicked.text = selectedOpp?.dateAttribute
         if selectedOpp?.remoteAttribute == true{
             isRemoteClicked.text = "🏠"
         }

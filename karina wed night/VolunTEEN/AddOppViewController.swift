@@ -19,6 +19,9 @@ class AddOppViewController: UIViewController {
     @IBOutlet weak var locationInput: UISwitch!
     @IBOutlet weak var jobTitleInput: UITextField!
     @IBOutlet weak var descriptionInput: UITextView!
+    
+    @IBOutlet weak var dateInput: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,13 +41,22 @@ class AddOppViewController: UIViewController {
              newOpp.remoteAttribute = locationInput.isOn
         newOpp.jobTitleAttribute = jobTitleInput.text
         newOpp.contactInfoAttribute = contactInformationInput.text
+        
+//        print(dateInput.date)
+        let time = dateInput.date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
 
+        let datetime = formatter.string(from: time)
+        print(datetime)
+        newOpp.dateAttribute = datetime
         //This is like clicking "save"! Our new object is now safe in Core Data!
              accessToCoreData.saveContext()
 
         //this send the user back to the Table View Controller
              navigationController?.popViewController(animated: true)
-        
+            
     
         }
 
