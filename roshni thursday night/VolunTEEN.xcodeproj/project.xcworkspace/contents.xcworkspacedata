@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../averta/AvertaDemoPE-ExtraBold.otf">
+   </FileRef>
+   <FileRef
+      location = "group:../../averta/AvertaDemoPECuttedDemo-Regular.otf">
+   </FileRef>
+   <FileRef
+      location = "self:">
+   </FileRef>
+</Workspace>
